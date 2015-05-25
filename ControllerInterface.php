@@ -8,7 +8,7 @@
 
 interface ControllerInterface
 {
-	function index();
+	function index($bloggerID);
     function show($id);
 	function create();
 	function edit($id);

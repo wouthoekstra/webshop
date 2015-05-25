@@ -47,7 +47,7 @@ class ControllerPost implements ControllerInterface
 
 	public function show($id)
 	{
-		$post = $this->repoPost->byID($id);
+		$post = $this->repoPost->show($id);
 
 		if ($post === null)
 		{

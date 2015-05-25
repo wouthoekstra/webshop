@@ -23,7 +23,7 @@ class ControllerProduct implements ControllerInterface
 	{
 	}
 
-	public function index()
+	public function index($data)
 	{
         $products = $this->repoProduct->all();
 		include "ViewListProducts.php";

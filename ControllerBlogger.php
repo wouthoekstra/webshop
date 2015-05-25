@@ -28,7 +28,7 @@ class ControllerBlogger implements ControllerInterface
 		$this->index();
 	}
 
-	public function index()
+	public function index($data=null)
 	{
 		$bloggers = $this->repoBlogger->all();
 		include "ViewListBlogger.php";

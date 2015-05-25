@@ -17,6 +17,7 @@
 	<div class="panel-footer">
 		<div>
 			Created on: <?php echo $product->price;?>
+            
 		</div>
 	</div>
 

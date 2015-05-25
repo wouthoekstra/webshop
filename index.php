@@ -1,34 +1,43 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wouth_000
- * Date: 25/05/2015
- * Time: 11:28
- */
+spl_autoload_register(function($class) {
+    include $class . '.php';
+});
+session_start();
+if (!isset($_SESSION['logged']))
+{
+	$_SESSION['logged'];
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-// Include the composer autoload file
-include_once "vendor/autoload.php";
+	<?php include "config.php" ?>
 
-// Import the necessary classes
-//use Illuminate\Database\Capsule\Manager as Capsule;
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
-// Create the Sentry alias
-class_alias('Cartalyst\Sentry\Facades\Native\Sentry', 'Sentry');
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 
-// Create a new Database connection
-$capsule = new Capsule;
-
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'webshop',
-    'username'  => 'root',
-    'password'  => '',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-]);
-
-$capsule->bootEloquent();
-
-// Find a user using the user email address
-$user = Sentry::findUserByLogin('john.doe@example.com');
+	<title>Bootstrap 101 Template</title>
+</head>
+<body>
+<div class="container">
+	<?php
+	include "ViewWarning.php";
+    include "ViewMenu.php";
+    include "router.php";
+	?>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

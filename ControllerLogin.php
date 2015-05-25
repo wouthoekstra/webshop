@@ -6,7 +6,7 @@
  * Time: 10:51
  */
 
-class ControllerLogin
+class ControllerLogin implements ControllerInterface
 {
 	private $repoBlogger;
 
@@ -15,17 +15,32 @@ class ControllerLogin
 		$this->repoBlogger = new RepoBlogger();
 	}
 
-	public function manage()
+	public function manage($data)
 	{
 		$this->index();
 	}
+
+    public function show($id)
+    {
+
+    }
+
+    public function update($id)
+    {
+
+    }
+
+    public function edit($id)
+    {
+
+    }
 
 	public function index()
 	{
 		header("Location: ?page=post");
 	}
 
-	public function store()
+	public function store($data)
 	{
 		if (isset($_POST['username']))
 		{
@@ -50,7 +65,7 @@ class ControllerLogin
 		}
 	}
 
-	public function delete()
+	public function delete($id)
 	{
 		$_SESSION['logged'] = false;
 		header("Location: ?page=post");

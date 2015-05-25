@@ -9,7 +9,7 @@ spl_autoload_register(function($class) {
 	include $class . '.php';
 });
 
-class ControllerBlogger
+class ControllerBlogger implements ControllerInterface
 {
 	private $repoBlogger;
 
@@ -18,7 +18,12 @@ class ControllerBlogger
 		$this->repoBlogger = new RepoBlogger();
 	}
 
-	public function manage()
+    public function show($id)
+    {
+
+    }
+
+	public function manage($data)
 	{
 		$this->index();
 	}
@@ -34,7 +39,7 @@ class ControllerBlogger
 		include "ViewWriteBlogger.php";
 	}
 
-	public function store()
+	public function store($data)
 	{
 		if (isset($_POST['username']))
 		{
@@ -49,8 +54,19 @@ class ControllerBlogger
 		}
 	}
 
-	public function show()
-	{
+    public function delete($id)
+    {
 
-	}
+    }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update($id)
+    {
+
+    }
+
 }

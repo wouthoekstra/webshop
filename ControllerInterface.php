@@ -9,7 +9,7 @@
 interface ControllerInterface
 {
 	function index();
-	function show($id);
+    function show($id);
 	function create();
 	function edit($id);
 	function store($id);

@@ -10,7 +10,7 @@ spl_autoload_register(function($class) {
 	include $class . '.php';
 });
 
-class ControllerPost
+class ControllerPost implements ControllerInterface
 {
 	private $repoPost;
 	private $repoComment;
@@ -92,6 +92,11 @@ class ControllerPost
 			header("Location: ?page=post");
 		}
 	}
+
+    public function delete($id)
+    {
+
+    }
 
 	public function update($id)
 	{

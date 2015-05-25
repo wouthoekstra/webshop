@@ -55,6 +55,9 @@ class Router {
 			case "blogger":
 				$this->controller = new ControllerBlogger();
 				break;
+            case "order":
+                $this->controller = new ControllerOrder();
+                break;
 			default:
 				$this->controller = new ControllerPost();
 		}

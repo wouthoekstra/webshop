@@ -108,4 +108,5 @@ class ControllerProduct
 		$product = $this->repoProduct->show($id);
 		include "ViewWriteProduct.php";
 	}
+
 }

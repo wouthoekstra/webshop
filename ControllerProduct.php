@@ -33,16 +33,10 @@ class ControllerProduct
 		include "ViewManageProduct.php";
 	}
 
-	public function index($bloggerID)
+	public function index()
 	{
-		if (empty($bloggerID))
-		{
-			$products = $this->repoProduct->all();
-		} else
-		{
-			$products = $this->repoProduct->allByBlogger($bloggerID);
-		}
-		include "ViewListPosts.php";
+        $products = $this->repoProduct->all();
+		include "ViewListProducts.php";
 	}
 
 	public function show($id)
@@ -97,7 +91,7 @@ class ControllerProduct
 	{
 		if ($_SESSION['logged'])
 		{
-			$product = $this->repoProduct->byID($id);
+			$product = $this->repoProduct->show($id);
 			$product->title = htmlspecialchars($_POST['title'], ENT_QUOTES);
 			$product->content = htmlspecialchars($_POST['content'], ENT_QUOTES);
 			$product->bloggerID = $_SESSION['bloggerid'];
@@ -111,7 +105,7 @@ class ControllerProduct
 
 	public function edit($id)
 	{
-		$product = $this->repoProduct->byID($id);
+		$product = $this->repoProduct->show($id);
 		include "ViewWriteProduct.php";
 	}
 }

@@ -10,7 +10,6 @@ interface DatabaseInterface
 {
 	function save(&$model);
 	function store(&$model);
-	function show(&$model);
 	function update(&$model);
 	function delete($id);
 	function all();

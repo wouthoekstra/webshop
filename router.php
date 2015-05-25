@@ -60,12 +60,12 @@ class Router {
 		}
 		switch ($this->action)
 		{
-			case "list":
-				$this->controller->index($this->blog);
+			case "all":
+				$this->controller->index();
 				break;
-			case "show":
+            case "show":
 				$this->controller->show($this->id);
-				break;
+                break;
 			case "create":
 				$this->controller->create();
 				break;

@@ -1,0 +1,9 @@
+{
+  "name": "wouthoekstra/webshop",
+  "type": "library",
+  "description": "Small webshop to demonstrate webdevelopment capabilities.",
+  "license": "GPL-3.0",
+  "require": {
+    "cartalyst/sentry": "2.1.*"
+  }
+}

@@ -31,13 +31,8 @@ class ControllerOrder implements ControllerInterface
 	{
 	}
 
-	public function create($id)
+	public function create()
 	{
-        $order = $this->repoOrder->byID($id);
-        $order->product_id = 2;
-        $order->customer_id = 1;
-        $this->repoOrder->save($order);
-        header("Location: ?page=order&action=byID&id=" . $order->id);
 	}
 
 	public function store($data)
@@ -50,6 +45,12 @@ class ControllerOrder implements ControllerInterface
 
 	public function update($id)
 	{
+
+        $order = new ModelOrder();
+        $order->product_id = 2;
+        $order->customer_id = 1;
+        $this->repoOrder->save($order);
+        header("Location: ?page=order&action=byID&id=" . $order->id);
 	}
 
 	public function edit($id)

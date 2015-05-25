@@ -48,20 +48,7 @@ class ControllerProduct
 			header("Location: 404");
 		}
 
-		$owner = false;
-		if ($_SESSION['logged'] && $product->bloggerID == $_SESSION['bloggerid'])
-		{
-			$owner = true;
-		}
-
-//		$comments = $this->repoComment->getCommentsByPost($id);
-
-//		$commentsNum = count($comments);
-
-
 		include "ViewProduct.php";
-//		include "ViewListComments.php";
-//		include "ViewWriteComment.php";
 
 	}
 

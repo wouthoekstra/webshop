@@ -12,12 +12,12 @@ spl_autoload_register(function($class) {
 
 class ModelProduct
 {
-	public $id;
-	public $bloggerID;
-	public $title;
-	public $content;
-	public $dateCreated;
-	public $dateEdited;
-
+    public $id;
+    public $name;
+    public $prince;
+    public $stock;
+    public $color;
+    public $description;
+    public $imageurl;
 }
 

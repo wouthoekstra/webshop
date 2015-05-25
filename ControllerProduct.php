@@ -47,7 +47,7 @@ class ControllerProduct
 
 	public function show($id)
 	{
-		$post = $this->repoProduct->byID($id);
+		$product = $this->repoProduct->show($id);
 
 		if ($product === null)
 		{

@@ -46,6 +46,9 @@ class Router {
 			case "comment":
 				$this->controller = new ControllerComment();
 				break;
+            case "product":
+                $this->controller = new ControllerProduct();
+                break;
 			case "login":
 				$this->controller = new ControllerLogin();
 				break;

@@ -8,27 +8,16 @@
 ?>
 <div class="panel panel-default postItem">
 	<div class="panel-heading">
-		<h2><?php echo $product->title; ?></h2>
+		<h2><?php echo $product->name; ?></h2>
 	</div>
 	<div class="panel-body">
-		<p><?php echo $product->content;?></p>
+		<p><?php echo $product->description;?></p>
+		<p><img src='resources/img/<?php echo $product->imageurl;?>' alt="<?php echo $product->name; ?>"/></p>
 	</div>
 	<div class="panel-footer">
 		<div>
-			Created on: <?php echo $product->dateCreated;?>
+			Created on: <?php echo $product->price;?>
 		</div>
-		<div>
-			<?php
-			if ($product->dateEdited != null)
-			{
-				echo "Edited on: " . $product->dateEdited;
-			}
-			?>
-
-		</div>
-
-			<div><?php echo $commentsNum; ?> comments</div>
-
 	</div>
 
 </div>

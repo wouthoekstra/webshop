@@ -9,7 +9,7 @@
 spl_autoload_register(function($class) {
 	include $class . '.php';
 });
-class RepoPost extends DatabaseBlog implements DatabaseInterface
+class RepoProduct extends DatabaseBlog implements DatabaseInterface
 {
 
 	public function save(&$product)
@@ -35,6 +35,29 @@ class RepoPost extends DatabaseBlog implements DatabaseInterface
 		$this->disconnect();
 	}
 
+    public function show(&$id)
+    {
+        $this->connect();
+
+        $query = $this->prepare("SELECT * FROM products WHERE id = ?");
+        $query->bind_param("s", $id);
+        $query->execute();
+        $result = $query->get_result();
+        $product = null;
+        if ($row = $result->fetch_assoc())
+        {
+            $product = new ModelProduct();
+            $product->id = $row['id'];
+            $product->name = $row['name'];
+            $product->price = $row['price'];
+            $product->stock = $row['stock'];
+            $product->color = $row['color'];
+            $product->description = $row['description'];
+            $product->imageurl = $row['imageurl'];
+        }
+        $this->disconnect();
+        return $product;
+    }
 	public function update(&$product)
 	{
 		$this->connect();
@@ -66,7 +89,7 @@ class RepoPost extends DatabaseBlog implements DatabaseInterface
 		$products = array();
 		while ($row = $result->fetch_assoc())
 		{
-			$product = new ModelPost();
+			$product = new ModelProduct();
 			$product->id = $row['id'];
 			$product->bloggerID = $row['blogger_id'];
 			$product->title = $row['title'];
@@ -93,7 +116,7 @@ class RepoPost extends DatabaseBlog implements DatabaseInterface
 		$products = array();
 		while ($row = $result->fetch_assoc())
 		{
-			$product = new ModelPost();
+			$product = new ModelProduct();
 			$product->id = $row['id'];
 			$product->bloggerID = $row['blogger_id'];
 			$product->title = $row['title'];
@@ -119,7 +142,7 @@ class RepoPost extends DatabaseBlog implements DatabaseInterface
 		$product = null;
 		if ($row = $result->fetch_assoc())
 		{
-			$product = new ModelPost();
+			$product = new ModelProduct();
 			$product->id = $row['id'];
 			$product->bloggerID = $row['blogger_id'];
 			$product->title = $row['title'];

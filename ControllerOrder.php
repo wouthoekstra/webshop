@@ -23,12 +23,20 @@ class ControllerOrder implements ControllerInterface
 	{
 	}
 
-	public function index()
+	public function index($data)
 	{
 	}
 
 	public function show($id)
 	{
+        $order = $this->repoOrder->show($id);
+//
+//        if ($order === null)
+//        {
+//            header("Location: 404");
+//        }
+
+        include "ViewOrder.php";
 	}
 
 	public function create()
@@ -43,14 +51,14 @@ class ControllerOrder implements ControllerInterface
     {
     }
 
-	public function update($id)
+	public function update($productID)
 	{
 
         $order = new ModelOrder();
-        $order->product_id = 2;
+        $order->product_id = $productID;
         $order->customer_id = 1;
         $this->repoOrder->save($order);
-        header("Location: ?page=order&action=byID&id=" . $order->id);
+        header("Location: ?page=order&action=show&id=" . $order->id);
 	}
 
 	public function edit($id)

@@ -29,6 +29,13 @@ $(document).ready(function() {
                     }
                 }
             },
+            description: {
+                validators: {
+                    notEmpty: {
+                        message: 'You do need to enter a description'
+                    }
+                }
+            },
             firstName: {
                 group: '.col-lg-4',
                 validators: {
@@ -42,6 +49,18 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'The last name is required and cannot be empty'
+                    }
+                }
+            },
+            price: {
+                group: '.col-lg-4',
+                validators: {
+                    notEmpty: {
+                        message: 'A product needs a price'
+                    },
+                    regexp: {
+                        regexp: /^([-+] ?)?[0-9]+(,[0-9]+)?$/,
+                        message: 'Not a valid price'
                     }
                 }
             },

@@ -50,6 +50,21 @@ class ControllerProduct implements ControllerInterface
 
 	public function store($data)
 	{
+        if ($_SESSION['logged'])
+        {
+            $product = new ModelProduct();
+            $product->name = htmlspecialchars($_POST['name'], ENT_QUOTES);
+            $product->price = htmlspecialchars($_POST['price'], ENT_QUOTES);
+            $product->stock = htmlspecialchars($_POST['stock'], ENT_QUOTES);
+            $product->color = htmlspecialchars($_POST['color'], ENT_QUOTES);
+            $product->description = htmlspecialchars($_POST['description'], ENT_QUOTES);
+            $product->imageurl = "";
+            $this->repoProduct->save($product);
+            header("Location: ?page=product&action=show&id=" . $product->id);
+        } else
+        {
+            header("Location: ?page=post");
+        }
 	}
 
 	public function update($id)

@@ -16,14 +16,14 @@ if (!isset($product->id)) {
 }
 ?>
 <div class="form-group">
-    <label for="title" class="form-group-addon" id="basic-addon1">Product</label>
+    <label for="name" class="form-group-addon" id="basic-addon1">Product</label>
     <input name="name" id="name" type="text" value="<?php echo $product->name; ?>" class="form-control"
            placeholder="Product name" aria-describedby="basic-addon1">
     <span id="inputError2Status" class="sr-only">(error)</span>
 </div>
 <div class="form-group">
-    <label for="content" class="form-group-addon" id="basic-addon2">Product description</label>
-    <textarea name="content" id="description" rows="5" class="form-control"
+    <label for="description" class="form-group-addon" id="basic-addon2">Product description</label>
+    <textarea name="description" id="description" rows="5" class="form-control"
               placeholder="Product description"><?php echo $product->description; ?></textarea>
 </div>
     <div class="row">

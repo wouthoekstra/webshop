@@ -48,14 +48,12 @@ class RepoProduct extends DatabaseBlog implements DatabaseInterface
 
 	public function store(&$product)
 	{
-//		$this->connect();
-//		$dateTime = date("Y-m-d H:m:s", time());
-//		$query = $this->prepare("INSERT INTO posts (title,content,blogger_id,date_created) VALUES (?,?,?,?)");
-//		$query->bind_param("ssis", $product->title, $product->content, $product->bloggerID, $dateTime);
-//		$query->execute();
-//		$product->id = $this->getInsertId();
-//		$product->dateCreated = $dateTime;
-//		$this->disconnect();
+		$this->connect();
+		$query = $this->prepare("INSERT INTO products (name,price,stock,color,description,imageurl) VALUES (?,?,?,?,?,?)");
+		$query->bind_param("sdisss", $product->name, $product->price, $product->stock, $product->color, $product->description, $product->imageurl);
+		$query->execute();
+		$product->id = $this->getInsertId();
+		$this->disconnect();
 	}
 
 	public function update(&$product)

@@ -8,10 +8,24 @@
 ?>
 <div class="panel panel-default orderItem">
 	<div class="panel-heading">
-		<h2><?php echo $order->title; ?></h2>
+		<h2>Order placed!</h2>
 	</div>
 	<div class="panel-body">
-		<p><?php echo $order->content;?></p>
+		<p>Your order with order number <?php echo $order->id; ?> is placed. Further details:</p>
+		<table>
+            <tr>
+                <td>Product number</td>
+                <td><?php echo $order->product_id;?></td>
+            </tr>
+            <tr>
+                <td>Customer reference number</td>
+                <td><?php echo $order->customer_id;?></td>
+            </tr>
+            <tr>
+                <td>Order date</td>
+                <td><?php echo $order->dateCreated;?></td>
+            </tr>
+        </table>
 	</div>
 	<div class="panel-footer">
 		<div>

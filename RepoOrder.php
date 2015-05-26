@@ -11,6 +11,27 @@ spl_autoload_register(function($class) {
 });
 class RepoOrder extends DatabaseBlog implements DatabaseInterface
 {
+    public function show($id)
+    {
+        $this->connect();
+
+        $query = $this->prepare("SELECT * FROM orders WHERE id = ?");
+        $query->bind_param("s", $id);
+        $query->execute();
+        $result = $query->get_result();
+        $order = null;
+        if ($row = $result->fetch_assoc())
+        {
+        $order = new ModelOrder();
+        $order->id = $row['id'];
+        $order->product_id = $row['product_id'];
+        $order->customer_id = $row['customer_id'];
+        $order->dateCreated = $row['date_created'];
+        }
+
+        $this->disconnect();
+        return $order;
+    }
 
     public function save(&$order)
 	{
@@ -21,10 +42,8 @@ class RepoOrder extends DatabaseBlog implements DatabaseInterface
 	{
 		$this->connect();
 		$dateTime = date("Y-m-d H:m:s", time());
-        $product_id = 2;
-        $customer_id = 1;
 		$query = $this->prepare("INSERT INTO orders (product_id,customer_id,date_created) VALUES (?,?,?)");
-		$query->bind_param("iis", $product_id, $customer_id, $dateTime);
+		$query->bind_param("iis", $order->product_id, $order->customer_id, $dateTime);
 		$query->execute();
 		$order->id = $this->getInsertId();
 		$order->dateCreated = $dateTime;
@@ -49,5 +68,6 @@ class RepoOrder extends DatabaseBlog implements DatabaseInterface
 
     public function byID($id)
     {
+
     }
 }

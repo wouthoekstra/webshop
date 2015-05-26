@@ -44,6 +44,8 @@ class ControllerProduct implements ControllerInterface
 
 	public function create()
 	{
+        $product = new ModelProduct();
+        include "ViewWriteProduct.php";
 	}
 
 	public function store($data)

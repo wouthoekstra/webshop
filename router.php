@@ -59,7 +59,7 @@ class Router {
                 $this->controller = new ControllerOrder();
                 break;
 			default:
-				$this->controller = new ControllerPost();
+				$this->controller = new ControllerProduct();
 		}
 		switch ($this->action)
 		{

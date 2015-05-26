@@ -14,7 +14,7 @@ class ModelProduct
 {
     public $id;
     public $name;
-    public $prince;
+    public $price;
     public $stock;
     public $color;
     public $description;

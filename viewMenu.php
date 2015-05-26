@@ -32,7 +32,15 @@ include "config.php";
 			{
 			?>
 
-			<li><a href="?page=post&action=create">Create post</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Create <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+			        <li role="presentation" class="class="btn btn-default"><a href="?page=post&action=create">Post</a></li>
+			        <li role="presentation" class="class="btn btn-default"><a href="?page=product&action=create">Product</a></li>
+                </ul>
+            </li>
 			<li><a href='?page=post&action=manage&bloggerid=<?php echo $_SESSION['bloggerid'];?>'>Manage Blog</a></li>
 			</ul>
 			<ul class="navbar-form navbar-right">

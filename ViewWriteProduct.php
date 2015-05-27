@@ -15,12 +15,19 @@ if (!isset($product->id)) {
     echo "<form id='validateForm' method='post' action='?page=product&action=update&id=" . $product->id . "'>";
 }
 ?>
-<div class="form-group">
+<div class="row">
+<div class="form-group col-md-6">
     <label for="name" class="form-group-addon" id="basic-addon1">Product</label>
     <input name="name" id="name" type="text" value="<?php echo $product->name; ?>" class="form-control"
            placeholder="Product name" aria-describedby="basic-addon1">
     <span id="inputError2Status" class="sr-only">(error)</span>
 </div>
+<div class="form-group col-md-6">
+    <label for="description" class="form-group-addon" id="basic-addon2">Product image</label>
+    <input id="input-id" type="file" class="file" data-preview-file-type="text" >
+    <span id="inputError2Status" class="sr-only">(error)</span>
+</div>
+    </div>
 <div class="form-group">
     <label for="description" class="form-group-addon" id="basic-addon2">Product description</label>
     <textarea name="description" id="description" rows="5" class="form-control"

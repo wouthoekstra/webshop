@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: TrainingUser
- * Date: 21-5-2015
- * Time: 13:47
- */
+<?php namespace webshop\Controllers;
 
 interface ControllerInterface
 {

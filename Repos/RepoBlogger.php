@@ -1,13 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: TrainingUser
- * Date: 21-5-2015
- * Time: 13:46
- */
-spl_autoload_register(function($class) {
-	include $class . '.php';
-});
+<?php namespace webshop\Repos;
 
 class RepoBlogger extends DatabaseBlog implements DatabaseInterface
 {

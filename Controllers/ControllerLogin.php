@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: TrainingUser
- * Date: 22-5-2015
- * Time: 10:51
- */
+<?php namespace webshop\Controllers;
 
 class ControllerLogin implements ControllerInterface
 {

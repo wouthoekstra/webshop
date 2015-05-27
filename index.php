@@ -1,8 +1,6 @@
-<?php
-spl_autoload_register(function($class) {
-    include $class . '.php';
-});
+<?php namespace webshop;
 session_start();
+require "init.php";
 if (!isset($_SESSION['logged']))
 {
 	$_SESSION['logged'];
@@ -30,9 +28,9 @@ if (!isset($_SESSION['logged']))
 <body>
 <div class="container">
 	<?php
-	include "ViewWarning.php";
-    include "ViewMenu.php";
-    include "Router.php";
+	require "Views/ViewWarning.php";
+    require "Views/ViewMenu.php";
+    require "Router.php";
 	?>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -1,13 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: TrainingUser
- * Date: 21-5-2015
- * Time: 15:29
- */
-spl_autoload_register(function($class) {
-	include $class . '.php';
-});
+<?php namespace webshop\Controllers;
 
 class ControllerBlogger implements ControllerInterface
 {

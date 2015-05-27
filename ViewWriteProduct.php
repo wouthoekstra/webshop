@@ -10,9 +10,9 @@
 <h1>Add product!</h1>
 <?php
 if (!isset($product->id)) {
-    echo "<form id='validateForm' method='post' action='?page=product&action=store'>";
+    echo "<form id='validateForm' method='post' enctype='multipart/form-data' action='?page=product&action=store' >";
 } else {
-    echo "<form id='validateForm' method='post' action='?page=product&action=update&id=" . $product->id . "'>";
+    echo "<form id='validateForm' method='post' enctype='multipart/form-data' action='?page=product&action=update&id=" . $product->id . "'>";
 }
 ?>
 <div class="row">
@@ -24,7 +24,7 @@ if (!isset($product->id)) {
 </div>
 <div class="form-group col-md-6">
     <label for="description" class="form-group-addon" id="basic-addon2">Product image</label>
-    <input id="input-id" type="file" class="file" data-preview-file-type="text" >
+    <input id="input-id" name="input-id" type="file" class="file" data-preview-file-type="text" >
     <span id="inputError2Status" class="sr-only">(error)</span>
 </div>
     </div>

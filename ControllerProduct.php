@@ -58,9 +58,18 @@ class ControllerProduct implements ControllerInterface
             $product->stock = htmlspecialchars($_POST['stock'], ENT_QUOTES);
             $product->color = htmlspecialchars($_POST['color'], ENT_QUOTES);
             $product->description = htmlspecialchars($_POST['description'], ENT_QUOTES);
-            $product->imageurl = "";
-            $this->repoProduct->save($product);
-            header("Location: ?page=product&action=show&id=" . $product->id);
+
+            if(isset($_FILES['input-id'])){
+                $file_name = $_FILES['input-id']['name'];
+                $file_size =$_FILES['input-id']['size'];
+                $file_tmp =$_FILES['input-id']['tmp_name'];
+                $file_type=$_FILES['input-id']['type'];
+            }
+            move_uploaded_file($file_tmp,"resources/img/".$file_name);
+
+
+//            $this->repoProduct->save($product);
+//            header("Location: ?page=product&action=show&id=" . $product->id);
         } else
         {
             header("Location: ?page=post");

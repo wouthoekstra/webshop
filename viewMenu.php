@@ -18,10 +18,10 @@ include "config.php";
 		<?php
 		if ($_SESSION['logged'])
 		{
-			echo "<a class='navbar-brand' href='?page=index'>" . $_SESSION['username'] . "'s Blog</a>";
+			echo "<a class='navbar-brand' href='?page=index'>" . $_SESSION['username'] . "'s Webshop</a>";
 		} else
 		{
-			echo "<a class='navbar-brand' href='?page=post'>Amazing Blog</a>";
+			echo "<a class='navbar-brand' href='?page=post'>Amazing webshop</a>";
 		}
 		?>
 	</div>

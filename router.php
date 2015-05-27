@@ -58,6 +58,9 @@ class Router {
             case "order":
                 $this->controller = new ControllerOrder();
                 break;
+            case "customer":
+                $this->controller = new ControllerCustomer();
+                break;
 			default:
 				$this->controller = new ControllerProduct();
 		}

@@ -26,6 +26,7 @@
                 <td><?php echo $order->dateCreated;?></td>
             </tr>
         </table>
+        <a href="?page=customer&action=create"><button class="btn btn-primary">Order now</button></a>
 	</div>
 	<div class="panel-footer">
 		<div>

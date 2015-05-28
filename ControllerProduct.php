@@ -10,9 +10,12 @@ spl_autoload_register(function($class) {
 	include $class . '.php';
 });
 
+use Intervention\Image\ImageManager;
+
 class ControllerProduct implements ControllerInterface
 {
 	private $repoProduct;
+// import the Intervention Image Manager Class
 
 	public function __construct()
 	{
@@ -64,12 +67,22 @@ class ControllerProduct implements ControllerInterface
                 $file_size =$_FILES['input-id']['size'];
                 $file_tmp =$_FILES['input-id']['tmp_name'];
                 $file_type=$_FILES['input-id']['type'];
+
+//                // create an image manager instance with favored driver
+//                $manager = new ImageManager(array('driver' => 'imagick'));
+//
+//                // to finally create image instances
+//                $file_tmp = $manager->make('foo.jpg')->resize(300, 200);
+
+                move_uploaded_file($file_tmp,"resources/img/".$file_name);
+                $product->imageurl = $file_name;
+            } else{
+                $product->imageurl = "";
             }
-            move_uploaded_file($file_tmp,"resources/img/".$file_name);
 
 
-//            $this->repoProduct->save($product);
-//            header("Location: ?page=product&action=show&id=" . $product->id);
+            $this->repoProduct->save($product);
+            header("Location: ?page=product&action=show&id=" . $product->id);
         } else
         {
             header("Location: ?page=post");

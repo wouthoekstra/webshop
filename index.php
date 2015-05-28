@@ -2,6 +2,7 @@
 spl_autoload_register(function($class) {
     include $class . '.php';
 });
+require_once "vendor/autoload.php";
 session_start();
 if (!isset($_SESSION['logged']))
 {

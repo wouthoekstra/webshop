@@ -1,4 +1,22 @@
+h1, h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14pt; }
+  h1 a, h2 a {
+    color: #222; }
+
+a:hover {
+  text-decoration: none; }
+
 .product img {
+  width: 100%;
+  padding: 10px; }
+
+.productItem .panel-heading a {
+  color: #222; }
+.productItem img {
   width: 100%; }
+.productItem .price {
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */

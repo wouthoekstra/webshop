@@ -47,7 +47,7 @@ class ControllerCustomer implements ControllerInterface
             header("Location: ?page=product&action=show&id=" . $customer->id);
         } else
         {
-            header("Location: ?page=post");
+            header("Location: ?page=customer&action=confirm");
         }
     }
 

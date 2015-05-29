@@ -89,6 +89,8 @@ class Router {
 				break;
 			case "manage":
 				$this->controller->manage($this->blog);
+            case "confirm":
+				include($this->page."confirm.php");
 				break;
 			default:
 				$this->controller->index($this->blog);

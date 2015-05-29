@@ -18,7 +18,7 @@ include "config.php";
 		<?php
 		if ($_SESSION['logged'])
 		{
-			echo "<a class='navbar-brand' href='?page=index'>" . $_SESSION['username'] . "'s Webshop</a>";
+			echo "<a class='navbar-brand' href='?page=index'>" . ucwords($_SESSION['username']) . "'s webshop</a>";
 		} else
 		{
 			echo "<a class='navbar-brand' href='?page=post'>Amazing webshop</a>";
@@ -27,7 +27,6 @@ include "config.php";
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-left">
-			<li><a href="?page=blogger">Show all bloggers</a></li>
 			<?php if ($_SESSION['logged'])
 			{
 			?>
@@ -41,11 +40,19 @@ include "config.php";
 			        <li role="presentation" class="class="btn btn-default"><a href="?page=product&action=create">Product</a></li>
                 </ul>
             </li>
-			<li><a href='?page=post&action=manage&bloggerid=<?php echo $_SESSION['bloggerid'];?>'>Manage Blog</a></li>
-			</ul>
-			<ul class="navbar-form navbar-right">
-				<a href="?page=login&action=delete"><button class="btn btn-primary">Log uit</button></a>
-			</ul>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Manage <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+			        <li><a href='?page=post&action=manage&bloggerid=<?php echo $_SESSION['bloggerid'];?>'>Posts</a></li>
+                    <li><a href="?page=blogger">Admins</a></li>
+                </ul>
+            </li>
+		</ul>
+        <ul class="navbar-form navbar-right">
+            <a href="?page=login&action=delete"><button class="btn btn-primary">Log uit</button></a>
+        </ul>
 			<?php
 			} else
 			{

@@ -6,7 +6,7 @@
  * Time: 14:47
  */
 ?>
-<h1>Your information</h1>
+<h1>Order step 2/2 - Your information</h1>
 <form id='validateForm' method='post' action='?page=customer&action=store'>
     <div class="form-group">
         <label for="name" class="form-group-addon" id="basic-addon1">name</label>

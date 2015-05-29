@@ -8,7 +8,7 @@
 ?>
 <div class="panel panel-default orderItem">
 	<div class="panel-heading">
-		<h2>Order step 1/2 - Order overview</h2>
+		<h2>Order confirmed</h2>
 	</div>
 	<div class="panel-body">
 		<p>Your order with order number <?php echo $order->id; ?> is placed. Further details:</p>

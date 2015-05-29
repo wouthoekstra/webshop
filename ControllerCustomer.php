@@ -17,9 +17,12 @@ class ControllerCustomer implements ControllerInterface
 // TODO: Implement index() method.
     }
 
-    function show($id)
+    function show($confirm)
     {
-// TODO: Implement show() method.
+        if($confirm==true) {
+            include "ViewConfirmOrder.php";
+        }
+
     }
 
     function create()
@@ -44,10 +47,10 @@ class ControllerCustomer implements ControllerInterface
             $customer->zip = htmlspecialchars($_POST['zip'], ENT_QUOTES);
             $customer->city = htmlspecialchars($_POST['city'], ENT_QUOTES);
             $this->repoCustomer->save($customer);
-            header("Location: ?page=product&action=show&id=" . $customer->id);
+            header("Location: ?page=customer&action=confirm&id=" . $customer->id);
         } else
         {
-            header("Location: ?page=customer&action=confirm");
+            header("Location: 404");
         }
     }
 

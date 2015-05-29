@@ -30,11 +30,11 @@ class ControllerOrder implements ControllerInterface
 	public function show($id)
 	{
         $order = $this->repoOrder->show($id);
-//
-//        if ($order === null)
-//        {
-//            header("Location: 404");
-//        }
+
+        if ($order === null)
+        {
+            header("Location: 404");
+        }
 
         include "ViewOrder.php";
 	}

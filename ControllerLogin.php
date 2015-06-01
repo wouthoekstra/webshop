@@ -17,7 +17,7 @@ class ControllerLogin implements ControllerInterface
 
 	public function manage($data)
 	{
-		$this->index();
+		$this->index($data);
 	}
 
     public function show($id)
@@ -35,7 +35,7 @@ class ControllerLogin implements ControllerInterface
 
     }
 
-	public function index()
+	public function index($data)
 	{
 		header("Location: ?page=post");
 	}

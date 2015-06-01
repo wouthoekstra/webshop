@@ -4,7 +4,6 @@
   "description": "Small webshop to demonstrate webdevelopment capabilities.",
   "license": "GPL-3.0",
   "require": {
-    "kartik-v/bootstrap-fileinput": "dev-master",
-    "intervention/image": "dev-master"
+    "kartik-v/bootstrap-fileinput": "dev-master"
   }
 }

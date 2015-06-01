@@ -4,6 +4,7 @@ spl_autoload_register(function($class) {
 });
 require_once "vendor/autoload.php";
 session_start();
+ob_start();
 if (!isset($_SESSION['logged']))
 {
 	$_SESSION['logged'];

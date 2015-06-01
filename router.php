@@ -1,15 +1,12 @@
-<?php
+<?php namespace webshop;
 /**
  * Created by PhpStorm.
  * User: TrainingUser
  * Date: 21-5-2015
  * Time: 9:04
  */
-spl_autoload_register(function($class) {
-	include $class . '.php';
-});
 
-$route = new Router();
+new Router();
 
 class Router {
 
@@ -41,28 +38,28 @@ class Router {
 		switch ($this->page)
 		{
 			case "post":
-				$this->controller = new ControllerPost();
+				$this->controller = new controllers\ControllerPost();
 				break;
 			case "comment":
-				$this->controller = new ControllerComment();
+				$this->controller = new controllers\ControllerComment();
 				break;
             case "product":
-                $this->controller = new ControllerProduct();
+                $this->controller = new controllers\ControllerProduct();
                 break;
 			case "login":
-				$this->controller = new ControllerLogin();
+				$this->controller = new controllers\ControllerLogin();
 				break;
 			case "blogger":
-				$this->controller = new ControllerBlogger();
+				$this->controller = new controllers\ControllerBlogger();
 				break;
             case "order":
-                $this->controller = new ControllerOrder();
+                $this->controller = new controllers\ControllerOrder();
                 break;
             case "customer":
-                $this->controller = new ControllerCustomer();
+                $this->controller = new controllers\ControllerCustomer();
                 break;
 			default:
-				$this->controller = new ControllerProduct();
+				$this->controller = new controllers\ControllerProduct();
 		}
 		switch ($this->action)
 		{

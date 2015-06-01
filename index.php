@@ -1,8 +1,8 @@
-<?php
-spl_autoload_register(function($class) {
-    include $class . '.php';
-});
+<?php namespace webshop;
+
+require_once "Autoloader.php";
 require_once "vendor/autoload.php";
+new Autoloader();
 session_start();
 ob_start();
 if (!isset($_SESSION['logged']))
@@ -34,8 +34,8 @@ if (!isset($_SESSION['logged']))
 <body>
 <div class="container">
 	<?php
-	include "ViewWarning.php";
-    include "ViewMenu.php";
+	include "views\ViewWarning.php";
+    include "views\ViewMenu.php";
     include "Router.php";
 	?>
 </div>
